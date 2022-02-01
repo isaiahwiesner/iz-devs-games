@@ -90,6 +90,10 @@ function stop(){
         document.getElementById("score").innerHTML = 0;
         document.getElementById("button").innerHTML = "Start (enter)";
     }, 1);
+    var rickroll = randomInt(1, 5);
+    if (rickroll == 1){
+        window.open("https://play.izzdevs.me/virus-jump-rickrolled");
+    }
 }
 
 function start(){
