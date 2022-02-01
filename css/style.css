@@ -46,9 +46,13 @@ body{
     border: 2px solid #008800;
     border-radius: 10px;
 }
+.text{
+    padding: 20px;
+    width: 80%;
+}
 .box h1{
     font-size: 20px;
-    font-family: '8bit', Arial, Helvetica, sans-serif;
+    font-family: 'Main', Arial, Helvetica, sans-serif;
     color: #008800;
 }
 .box a{
@@ -58,4 +62,9 @@ body{
 .box a:hover{
     color: #00aa00;
     text-decoration: none;
+}
+.box p{
+    font-size: 16px;
+    color: #000;
+    font-family: '8bit', Arial, Helvetica, sans-serif;
 }
