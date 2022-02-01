@@ -12,6 +12,25 @@
     font-family: '8bit', Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
+.bbhead{
+    padding-top: 20px;
+    padding-left: 15px;
+}
+a.backbtn{
+    width: 100px;
+    padding: 10px;
+    font-family: '8bit', Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    background-color: #ff0000;
+    color: #000;
+    text-decoration: none;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+a:hover.backbtn{
+    text-decoration: none;
+    background-color: #ff5555;
+}
 body{
     background-color: #ffcccc;
 }
@@ -24,7 +43,7 @@ h1{
 .all {
     margin: 0 auto;
     width: 504px;
-    padding-top: 80px;
+    padding-top: 60px;
     overflow: hidden;
 }
 .top{
