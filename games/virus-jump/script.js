@@ -60,9 +60,9 @@ var checkDead = setInterval(function(){
             document.getElementById("score").innerHTML = numComma(score);
         }
         if (die == true){
-            block.style.backgroundImage = "url(https://i.imgur.com/3o2rHAK.png)";
+            block.style.backgroundImage = "url(./img/block.png)";
         } else {
-            block.style.backgroundImage = "url(https://i.imgur.com/MnigElB.png)";
+            block.style.backgroundImage = "url(./img/1k.png)";
         }
     }
 }, 10);
