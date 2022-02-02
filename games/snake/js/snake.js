@@ -1,6 +1,6 @@
 import { getInputDirection } from "./input.js";
 
-export const SNAKE_SPEED = 10;
+export var SNAKE_SPEED = 10;
 let snakeBody = [{ x: 8, y: 8 }];
 let newSegments = 0;
 
@@ -59,4 +59,8 @@ export function snakeIntersection(){
 
 export function resetSnakeBody(){
     snakeBody = [{ x: 8, y: 8 }];
+}
+
+export function changeSnakeSpeed(speed){
+    SNAKE_SPEED = speed;
 }
