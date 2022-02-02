@@ -2,7 +2,7 @@ const gameList = document.getElementById('gameList');
 
 const loadGames = async () => {
     try {
-        const res = await fetch("https://play.izzdevs.me/api/games.json");
+        const res = await fetch("https://play.izzdevs.me/js/api/games.json");
         let izgames = await res.json();
         displayGames(izgames);
         console.log(izgames);
