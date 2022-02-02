@@ -25,6 +25,26 @@ window.addEventListener("keydown", (e) => {
             inputDirection = { x: 1, y: 0 };
             startGame();
             break;
+        case "w":
+            if (lastInputDirection.y != 0) break;
+            inputDirection = { x: 0, y: -1 };
+            startGame();
+            break;
+        case "s":
+            if (lastInputDirection.y != 0) break;
+            inputDirection = { x: 0, y: 1 };
+            startGame();
+            break;
+        case "a":
+            if (lastInputDirection.x != 0) break;
+            inputDirection = { x: -1, y: 0 };
+            startGame();
+            break;
+        case "d":
+            if (lastInputDirection.x != 0) break;
+            inputDirection = { x: 1, y: 0 };
+            startGame();
+            break;
         case "1":
             changeDiff(5);
             break;
