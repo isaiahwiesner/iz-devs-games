@@ -2,13 +2,13 @@
     {
         "name":"Snake",
         "description":"Slither around and get bigger as you go!",
-        "link":"https://play.izzdevs.me/games/snake",
+        "link":"https://play.izzdevs.me/games/snake?difficulty=2",
         "image":"https://play.izzdevs.me/games/snake/img/snake.png"
     },
     {
         "name":"Virus Jump",
         "description":"Jump to avoid catching the virus!",
-        "link":"https://play.izzdevs.me/games/virus-jump?difficulty=2",
+        "link":"https://play.izzdevs.me/games/virus-jump",
         "image":"https://play.izzdevs.me/games/virus-jump/img/virus-jump.png"
     }
 ]
