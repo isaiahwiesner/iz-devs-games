@@ -92,7 +92,7 @@ function stop(){
     }, 1);
     var rickroll = randomInt(1, 5);
     if (rickroll == 1){
-        window.open("https://play.izzdevs.me/games/virus-jump/rickrolled");
+        window.open("https://youtu.be/dQw4w9WgXcQ");
     }
 }
 

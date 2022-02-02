@@ -51,13 +51,21 @@ h1{
     overflow: hidden;
     padding-bottom: 40px;
 }
+.top{
+    padding: 5px;
+    text-align: center;
+    background-color: #fff;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
 #game{
     background-color: #fff;
     width: 400px;
     height: 400px;
     display: grid;
-    grid-template-rows: repeat(21, 1fr);
-    grid-template-columns: repeat(21, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    grid-template-columns: repeat(15, 1fr);
     border: 2px solid #000;
 }
 .snake{

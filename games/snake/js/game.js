@@ -1,6 +1,8 @@
-import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection } from "./snake.js";
+import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection, resetSnakeBody } from "./snake.js";
 import { update as updateFood, draw as drawFood } from "./food.js";
 import { outsideGrid } from "./grid.js";
+import { resetInput } from "./input.js"
+import { resetScore, SCORE, HIGH_SCORE, checkHighScore } from "./score.js"
 
 let lastRenderTime = 0;
 let gameOver = false;
@@ -9,10 +11,21 @@ draw();
 
 function main(currentTime){
     if (gameOver) {
-        if (confirm("You lost!\nPress OK to restart.")){
-            window.location = "https://play.izzdevs.me/games/snake";
+        var rickroll = randomInt(1, 5);
+        if (rickroll == 1){
+            window.open("https://youtu.be/dQw4w9WgXcQ");
         }
-        return;
+        if (SCORE > HIGH_SCORE){
+            alert(`You died!\nScore: ${SCORE}\nNew high score!`);
+        } else{
+            alert(`You died!\nScore: ${SCORE}`);
+        }
+        gameOver = false;
+        lastRenderTime = 0;
+        resetInput();
+        resetSnakeBody();
+        checkHighScore();
+        resetScore();
     }
     
     window.requestAnimationFrame(main);
@@ -41,4 +54,9 @@ function draw() {
 
 function checkDeath(){
     gameOver = outsideGrid(getSnakeHead()) || snakeIntersection();
+}
+
+
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
 }
