@@ -1,5 +1,3 @@
-const gameList = document.getElementById('gameList');
-
 const loadGames = async () => {
     try {
         const res = await fetch("https://play.izzdevs.me/js/api/games.json");
@@ -27,7 +25,7 @@ const displayGames = (games) => {
             `;
         })
         .join('');
-    gameList.innerHTML = htmlString;
+    document.getElementById("gameList").innerHTML = htmlString;
 }
 
 loadGames();
