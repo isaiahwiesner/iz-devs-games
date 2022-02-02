@@ -10,7 +10,7 @@ draw();
 function main(currentTime){
     if (gameOver) {
         if (confirm("You lost!\nPress OK to restart.")){
-            window.location = "/";
+            window.location = "https://play.izzdevs.me/games/snake";
         }
         return;
     }
