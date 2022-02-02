@@ -70,17 +70,17 @@ function randomInt(min, max) {
 export function changeDiff(speed){
     if (gamestart == false){
         changeSnakeSpeed(speed);
-        easy.innerHTML = "<button id='easybtn'>Easy<br>(1)</button>";
-        normal.innerHTML = "<button id='normalbtn'>Normal<br>(2)</button>";
-        hard.innerHTML = "<button id='hardbtn'>Hard<br>(3)</button>";
+        easy.innerHTML = "<button id='easybtn'>Easy (1)</button>";
+        normal.innerHTML = "<button id='normalbtn'>Normal (2)</button>";
+        hard.innerHTML = "<button id='hardbtn'>Hard (3)</button>";
         if (speed == 5){
-            easy.innerHTML = "<button id='easybtn' class='active'>Easy<br>(1)</button>";
+            easy.innerHTML = "<button id='easybtn' class='active'>Easy (1)</button>";
         }
         if (speed == 10){
-            normal.innerHTML = "<button id='normalbtn' class='active'>Normal<br>(2)</button>";
+            normal.innerHTML = "<button id='normalbtn' class='active'>Normal (2)</button>";
         }
         if (speed == 15){
-            hard.innerHTML = "<button id='hardbtn' class='active'>Hard<br>(3)</button>";
+            hard.innerHTML = "<button id='hardbtn' class='active'>Hard (3)</button>";
         }
     }
 }

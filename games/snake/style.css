@@ -80,6 +80,7 @@ h1{
     text-align: center;
 }
 .bottom button{
+    font-size: 10px;
     width: 33.3%;
     float: left;
     padding: 8px;
