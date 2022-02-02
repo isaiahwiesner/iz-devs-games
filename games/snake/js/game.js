@@ -6,6 +6,7 @@ import { resetScore, SCORE, HIGH_SCORE, checkHighScore } from "./score.js"
 
 let lastRenderTime = 0;
 let gameOver = false;
+let gamestart = false;
 const gameBoard = document.getElementById('game');
 draw();
 
@@ -24,6 +25,7 @@ function main(currentTime){
         }
         gameOver = false;
         lastRenderTime = 0;
+        gamestart = false;
         resetInput();
         resetSnakeBody();
         checkHighScore();
@@ -61,33 +63,30 @@ function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-var url = (window.location).href;
-var check = url.split("?");
-var diff = check[1].split("=");
-if (diff[0] == "difficulty"){
-    if (diff[1] == "1"){
-        changeSnakeSpeed(5);
-        const easy = document.getElementById('easy');
-        easy.innerHTML = `
-        <button class="active">Easy</button>
-        `;
-    } else if (diff[1] == "2"){
-        changeSnakeSpeed(10);
-        const hard = document.getElementById('normal');
-        hard.innerHTML = `
-        <button class="active">Normal</button>
-        `;
-    } else if (diff[1] == "3"){
-        changeSnakeSpeed(15);
-        const normal = document.getElementById('hard');
-        normal.innerHTML = `
-        <button class="active">Hard</button>
-        `;
-    } else {
-        location.href = "https://play.izzdevs.me/games.snake?difficulty=2";
+function changeDiff(speed){
+    if (gamestart == true) return;
+    const easy = document.getElementById('easy');
+    const normal = document.getElementById('normal');
+    const hard = document.getElementById('hard');
+    changeSnakeSpeed(speed);
+    easy.innerHTML = "<button onclick='changeDiff(5)'>Easy</button>";
+    normal.innerHTML = "<button onclick='changeDiff(10)'>Normal</button>";
+    hard.innerHTML = "<button onclick='changeDiff(15)'>Hard</button>";
+    if (speed = 5){
+        easy.innerHTML = "<button onclick='changeDiff(5)' class='active'>Easy</button>";
     }
-} else {
-    location.href = "https://play.izzdevs.me/games.snake?difficulty=2";
+    if (speed = 10){
+        normal.innerHTML = "<button onclick='changeDiff(10)'>Normal</button>";
+    }
+    if (speed = 15){
+        hard.innerHTML = "<button onclick='changeDiff(15)'>Hard</button>";
+    }
 }
+
+export function startGame(){
+    gamestart = true;
+}
+
+changeDiff(10);
 
 window.requestAnimationFrame(main);
