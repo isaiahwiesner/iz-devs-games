@@ -1,5 +1,11 @@
 [
     {
+        "name":"Snake",
+        "description":"Slither around and get bigger as you go!",
+        "link":"https://play.izzdevs.me/games/snake",
+        "image":"https://play.izzdevs.me/games/snake/img/snake.png"
+    },
+    {
         "name":"Virus Jump",
         "description":"Jump to avoid catching the virus!",
         "link":"https://play.izzdevs.me/games/virus-jump",
