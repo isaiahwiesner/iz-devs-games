@@ -1,7 +1,7 @@
 let inputDirection = { x: 0, y: 0 };
 let lastInputDirection = { x: 0, y: 0 };
 
-import { startGame } from "./game.js"
+import { changeDiff, startGame } from "./game.js"
 
 window.addEventListener("keydown", (e) => {
     switch (e.key) {
@@ -24,6 +24,15 @@ window.addEventListener("keydown", (e) => {
             if (lastInputDirection.x != 0) break;
             inputDirection = { x: 1, y: 0 };
             startGame();
+            break;
+        case "1":
+            changeDiff(5);
+            break;
+        case "2":
+            changeDiff(10);
+            break;
+        case "3":
+            changeDiff(15);
             break;
     }
 })

@@ -1,8 +1,15 @@
 import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection, resetSnakeBody, changeSnakeSpeed } from "./snake.js";
 import { update as updateFood, draw as drawFood } from "./food.js";
 import { outsideGrid } from "./grid.js";
-import { resetInput } from "./input.js"
-import { resetScore, SCORE, HIGH_SCORE, checkHighScore } from "./score.js"
+import { resetInput } from "./input.js";
+import { resetScore, SCORE, HIGH_SCORE, checkHighScore } from "./score.js";
+
+const easy = document.getElementById('easy');
+const normal = document.getElementById('normal');
+const hard = document.getElementById('hard');
+const easybtn = document.getElementById('easybtn');
+const normalbtn = document.getElementById('normalbtn');
+const hardbtn = document.getElementById('hardbtn');
 
 let lastRenderTime = 0;
 let gameOver = false;
@@ -63,23 +70,21 @@ function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-function changeDiff(speed){
-    if (gamestart == true) return;
-    const easy = document.getElementById('easy');
-    const normal = document.getElementById('normal');
-    const hard = document.getElementById('hard');
-    changeSnakeSpeed(speed);
-    easy.innerHTML = "<button onclick='changeDiff(5)'>Easy</button>";
-    normal.innerHTML = "<button onclick='changeDiff(10)'>Normal</button>";
-    hard.innerHTML = "<button onclick='changeDiff(15)'>Hard</button>";
-    if (speed = 5){
-        easy.innerHTML = "<button onclick='changeDiff(5)' class='active'>Easy</button>";
-    }
-    if (speed = 10){
-        normal.innerHTML = "<button onclick='changeDiff(10)'>Normal</button>";
-    }
-    if (speed = 15){
-        hard.innerHTML = "<button onclick='changeDiff(15)'>Hard</button>";
+export function changeDiff(speed){
+    if (gamestart == false){
+        changeSnakeSpeed(speed);
+        easy.innerHTML = "<button id='easybtn'>Easy</button>";
+        normal.innerHTML = "<button id='normalbtn'>Normal</button>";
+        hard.innerHTML = "<button id='hardbtn'>Hard</button>";
+        if (speed == 5){
+            easy.innerHTML = "<button id='easybtn' class='active'>Easy</button>";
+        }
+        if (speed == 10){
+            normal.innerHTML = "<button id='normalbtn' class='active'>Normal</button>";
+        }
+        if (speed == 15){
+            hard.innerHTML = "<button id='hardbtn' class='active'>Hard</button>";
+        }
     }
 }
 
