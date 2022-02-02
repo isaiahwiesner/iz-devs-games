@@ -4,5 +4,11 @@
         "description":"Jump to avoid catching the virus!",
         "link":"https://play.izzdevs.me/games/virus-jump",
         "image":"https://play.izzdevs.me/games/virus-jump/img/virus-jump"
+    },
+    {
+        "name":"Snake",
+        "description":"Slither around and grow bigger!",
+        "link":"https://play.izzdevs.me/games/snake",
+        "image":"https://play.izzdevs.me/games/snake/img/snake"
     }
 ]
