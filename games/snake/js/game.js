@@ -84,10 +84,10 @@ if (diff[0] == "difficulty"){
         <button class="active">Hard</button>
         `;
     } else {
-        location.href = "?difficulty=2";
+        location.href = "https://play.izzdevs.me/games.snake?difficulty=2";
     }
 } else {
-    location.href = "?difficulty=2";
+    location.href = "https://play.izzdevs.me/games.snake?difficulty=2";
 }
 
 window.requestAnimationFrame(main);
