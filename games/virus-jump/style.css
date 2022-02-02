@@ -3,7 +3,7 @@
     src: url(./fonts/8-bit-hud.ttf);
 }
 @font-face {
-    font-family: 'Aldo';
+    font-family: 'Virus';
     src: url(./fonts/VIRUS.ttf);
 }
 *{
@@ -41,7 +41,7 @@ body{
 h1{
     text-align: center;
     font-size: 64px;
-    font-family: 'Aldo', Arial, Helvetica, sans-serif;
+    font-family: 'Virus', Arial, Helvetica, sans-serif;
     padding-bottom: 10px;
 }
 .all {

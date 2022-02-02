@@ -1,0 +1,8 @@
+@font-face {
+    font-family: '8bit';
+    src: url(./fonts/8-bit-hud.ttf);
+}
+@font-face {
+    font-family: 'Snake';
+    src: url(./fonts/SnakeChan-MMoJ.ttf);
+}
