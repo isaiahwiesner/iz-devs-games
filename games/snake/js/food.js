@@ -1,6 +1,7 @@
 import { onSnake, expandSnake } from "./snake.js";
 import { randomGridPosition } from "./grid.js";
 import { addScore } from "./score.js";
+import { eatSound } from "./game.js";
 
 let food = getRandomFoodPosition();
 const EXPANSION_RATE = 1;
@@ -10,6 +11,7 @@ export function update(){
         expandSnake(EXPANSION_RATE);
         food = getRandomFoodPosition();
         addScore();
+        eatSound.play();
     }
 }
 
