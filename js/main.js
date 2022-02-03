@@ -2,11 +2,11 @@ const gameList = document.getElementById('gameList');
 const searchbar = document.getElementById('searchbar');
 
 const loadGames = async () => {
-    const res = await fetch("https://play.izzdevs.me/js/api/games.json");
-    let izgames = await res.json();
-    displayGames(izgames);
-    console.log(izgames);
     try {
+        const res = await fetch("https://play.izzdevs.me/js/api/games.json");
+        let izgames = await res.json();
+        displayGames(izgames);
+        console.log(izgames);
     } catch(err) {
         console.log(err);
     }
