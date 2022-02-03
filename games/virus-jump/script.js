@@ -6,6 +6,25 @@ var highscore = 0;
 var die = true;
 var last1k = 0;
 
+const jumpSound = new sound("./snd/jump.wav");
+const extraSound = new sound("./snd/1k.wav");
+const gameoverSound = new sound("./snd/gameover.wav");
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
+    }
+}
+
 function button(){
     if (started == true){
         jump();
@@ -29,6 +48,7 @@ function jump(){
     if (started == true){
         if (character.classList != "animate"){
             character.classList.add("animate");
+            jumpSound.play();
         }
     }
     setTimeout(function(){
@@ -44,12 +64,13 @@ var checkDead = setInterval(function(){
     if (started == true){
         if (blockLeft < 20 && blockLeft > 0 && characterTop >= 130){
             if (die == true){
-                stop()
+                stop();
             } else {
                 if (score - last1k > 50){
                     score = score + 1000;
                     last1k = score;
                     document.getElementById("block").style.display = "none";
+                    extraSound.play();
                     setTimeout(function(){
                         document.getElementById("block").style.display = "block";
                     }, 100);
@@ -68,6 +89,7 @@ var checkDead = setInterval(function(){
 }, 10);
 
 function stop(){
+    gameoverSound.play();
     var newhs = false;
     document.getElementById("score").innerHTML = numComma(score);
     if (score > highscore){
