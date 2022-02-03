@@ -6,15 +6,15 @@
         "image":"https://play.izzdevs.me/games/snake/img/snake.png"
     },
     {
-        "name":"Virus Jump",
-        "description":"Jump to avoid catching the virus!",
-        "link":"https://play.izzdevs.me/games/virus-jump",
-        "image":"https://play.izzdevs.me/games/virus-jump/img/virus-jump.png"
-    },
-    {
         "name":"Tic Tac Toe",
         "description":"The classic game of X's and O's",
         "link":"https://play.izzdevs.me/games/tic-tac-toe",
         "image":"https://play.izzdevs.me/games/tic-tac-toe/img/favicon.png"
+    },
+    {
+        "name":"Virus Jump",
+        "description":"Jump to avoid catching the virus!",
+        "link":"https://play.izzdevs.me/games/virus-jump",
+        "image":"https://play.izzdevs.me/games/virus-jump/img/virus-jump.png"
     }
 ]
