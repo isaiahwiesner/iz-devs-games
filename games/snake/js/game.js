@@ -15,6 +15,7 @@ const gameBoard = document.getElementById('game');
 draw();
 
 export const eatSound = new sound("./snd/eat.wav");
+const gameoverSound = new sound("./snd/gameover.wav");
 
 export function sound(src) {
     this.sound = document.createElement("audio");
@@ -39,6 +40,7 @@ function main(currentTime){
                 window.open("https://youtu.be/dQw4w9WgXcQ");
             }
         }
+        gameoverSound.play();
         if (SCORE > HIGH_SCORE){
             alert(`You died!\nScore: ${SCORE}\nNew high score!`);
         } else{
