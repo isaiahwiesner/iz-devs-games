@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe - iZz Games</title>
+    <link rel="icon" href="https://play.izzdevs.me/games/tic-tac-toe/img/favicon.png">
+    <link rel="stylesheet" href="https://play.izzdevs.me/games/tic-tac-toe/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://play.izzdevs.me/games/tic-tac-toe/script.js" defer></script>
+    <meta property="og:title" content="Tic Tac Toe - Made by iZz">
+    <meta property="og:description" content="The classic game of X's and O's">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://play.izzdevs.me/games/tic-tac-toe/img/favicon.png">
+    <meta property="og:url" content="https://www.izzdevs.me/games/tic-tac-toe">
+    <meta name="theme-color" content="#ffaa00">
+</head>
+<body>
+    <div class="bbhead">
+        <a href="https://play.izzdevs.me" class="backbtn"><i class="fa fa-caret-left"></i>HOME</a>
+    </div>
+    <div class="all">
+        <h1>Tic Tac Toe</h1>
+        <div class="top">
+            <p id="score"></p>
+        </div>
+        <div class="game" id="game">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+        </div>
+    </div>
+    <div class="winning-message" id="winningMessage">
+        <div data-winning-message-text></div>
+        <button id="restartButton">Restart</button>
+    </div>
+</body>
+</html>
