@@ -18,18 +18,36 @@ const restartButton = document.getElementById('restartButton');
 const score = document.getElementById('score');
 var xScore = 0;
 var oScore = 0;
-let oTurn
+let oTurn;
+let placeAllowed;
+const markSound = new sound("./snd/mark.wav");
 
 startGame();
 
-restartButton.addEventListener("click", startGame)
+restartButton.addEventListener("click", startGame);
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
+    }
+  }
 
 function startGame(){
     oTurn = false;
+    placeAllowed = true;
     cellElements.forEach(cell => {
         cell.classList.remove(X_CLASS);
         cell.classList.remove(O_CLASS);
-        cell.removeEventListener("click", handleClick)
+        cell.removeEventListener("click", handleClick);
         cell.addEventListener("click", handleClick, { once: true });
     });
     setBoardHoverClass();
@@ -40,8 +58,12 @@ function startGame(){
 function handleClick(e){
     const cell = e.target;
     const currentClass = oTurn ? O_CLASS : X_CLASS;
+    if (placeAllowed == false) {
+        cell.removeEventListener("click", handleClick);
+        cell.addEventListener("click", handleClick, { once: true });
+        return;
+    }
     placeMark(cell, currentClass);
-
     if (checkWin(currentClass)){
         endGame(false);
     } else if (isDraw()){
@@ -50,6 +72,10 @@ function handleClick(e){
         swapTurns();
         setBoardHoverClass();
     }
+    placeAllowed = false;
+    setTimeout(function() {
+        placeAllowed = true;
+    }, 1000);
 }
 
 function endGame(draw){
@@ -74,6 +100,7 @@ function isDraw(){
 
 function placeMark(cell, currentClass){
     cell.classList.add(currentClass);
+    markSound.play();
 }
 
 function swapTurns(){
