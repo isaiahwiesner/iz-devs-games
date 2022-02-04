@@ -90,3 +90,44 @@ h1{
 .bottom button.active{
     background-color: #0088ff;
 }
+
+.gameover-message{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .9);
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 50px;
+    font-family: 'ttt', Arial, Helvetica, sans-serif;
+    flex-direction: column;
+    text-align: center;
+}
+
+.gameover-message button{
+    cursor: pointer;
+    width: 200px;
+    padding: 10px;
+    font-family: '8bit', Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color: #0088ff;
+    color: #000;
+    text-decoration: none;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+
+.gameover-message button:hover{
+    background-color: #48aaff;
+}
+
+.gameover-message.show{
+    display: flex;
+}
+.gameover-text{
+    padding-bottom: 10px;
+}

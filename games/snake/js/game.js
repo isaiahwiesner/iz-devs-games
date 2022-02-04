@@ -3,6 +3,7 @@ import { update as updateFood, draw as drawFood } from "./food.js";
 import { outsideGrid } from "./grid.js";
 import { resetInput } from "./input.js";
 import { resetScore, SCORE, HIGH_SCORE, checkHighScore } from "./score.js";
+export let move = true;
 
 const easy = document.getElementById('easy');
 const normal = document.getElementById('normal');
@@ -41,14 +42,16 @@ function main(currentTime){
             }
         }
         gameoverSound.play();
+        document.getElementById('gameoverMessage').classList.add("show");
         if (SCORE > HIGH_SCORE){
-            alert(`You died!\nScore: ${SCORE}\nNew high score!`);
+            document.querySelector("[data-gameover-message-text]").innerText = `You died!\nScore: ${SCORE}\nNew high score!\n`
         } else{
-            alert(`You died!\nScore: ${SCORE}`);
+            document.querySelector("[data-gameover-message-text]").innerText = `You died!\nScore: ${SCORE}\n`
         }
         gameOver = false;
         lastRenderTime = 0;
         gamestart = false;
+        move = false;
         resetInput();
         resetSnakeBody();
         checkHighScore();
@@ -64,6 +67,11 @@ function main(currentTime){
     update();
     draw();
 }
+
+document.getElementById('restartButton').addEventListener("click", () => {
+    document.getElementById('gameoverMessage').classList.remove("show");
+    move = true;
+});
 
 function update(){
     updateSnake();
