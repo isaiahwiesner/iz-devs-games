@@ -1,4 +1,8 @@
-var started = false;
+import { checkSettings } from "../../js/localStorage.js";
+import { settingsOpen } from "./settings.js"
+checkSettings(false);
+
+export var started = false;
 var character = document.getElementById("character");
 var block = document.getElementById("block");
 var score = 0;
@@ -10,7 +14,7 @@ let allowjump = true;
 const jumpSound = new sound("./snd/jump.wav");
 const extraSound = new sound("./snd/1k.wav");
 const gameoverSound = new sound("./snd/gameover.wav");
-const rickrollSound = new sound("./snd/rickroll.wav");
+export const rickrollSound = new sound("./snd/rickroll.wav");
 
 function sound(src) {
     this.sound = document.createElement("audio");
@@ -20,18 +24,19 @@ function sound(src) {
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
     this.play = function(){
-        this.sound.play();
+        let settings = JSON.parse(localStorage.getItem("settings"));
+        if (settings[0].sound == true) this.sound.currentTime = 0;
+        if (settings[0].sound == true) this.sound.play();
     }
     this.stop = function(){
-        this.sound.pause();
-    }
-    this.restart = function(){
-        this.sound.currentTime = 0;
+        let settings = JSON.parse(localStorage.getItem("settings"));
+        if (settings[0].sound == true) this.sound.pause();
     }
 }
 
 function button(){
     if (allowjump == false) return;
+    if (settingsOpen == true) return;
     if (started == true){
         jump();
     } else {
@@ -41,6 +46,7 @@ function button(){
 
 document.addEventListener("keydown", evt => {
     if (allowjump == false) return;
+    if (settingsOpen == true) return;
     if (evt.keyCode === 32){
         jump();
     }
@@ -49,6 +55,10 @@ document.addEventListener("keydown", evt => {
             start();
         }
     }
+})
+
+document.getElementById("button").addEventListener("click", () => {
+    button()
 })
 
 function jump(){
@@ -106,7 +116,6 @@ function stop(){
     document.getElementById("highscore").innerHTML = "High score: " + numComma(highscore);
     setTimeout(function(){
         rickrollSound.play();
-        rickrollSound.restart();
         document.getElementById("gameoverMessage").classList.add("show");
         if (newhs == true){
             document.querySelector("[data-gameover-message-text]").innerText = "You caught the virus!\nScore: " + numComma(score) + "\nNew high score!";
