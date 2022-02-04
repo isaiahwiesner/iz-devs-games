@@ -35,12 +35,6 @@ export function sound(src) {
 
 function main(currentTime){
     if (gameOver) {
-        if (SNAKE_SPEED == 15){
-            var rickroll = randomInt(1, 5);
-            if (rickroll == 1){
-                window.open("https://youtu.be/dQw4w9WgXcQ");
-            }
-        }
         gameoverSound.play();
         document.getElementById('gameoverMessage').classList.add("show");
         if (SCORE > HIGH_SCORE){

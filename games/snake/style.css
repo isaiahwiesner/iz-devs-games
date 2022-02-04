@@ -131,3 +131,7 @@ h1{
 .gameover-text{
     padding-bottom: 10px;
 }
+.gameover-message img{
+    padding-bottom: 10px;
+    width: 80%;
+}
