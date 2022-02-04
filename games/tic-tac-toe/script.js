@@ -22,7 +22,6 @@ const score = document.getElementById('score');
 var xScore = 0;
 var oScore = 0;
 let oTurn;
-let placeAllowed;
 const markSound = new sound("./snd/mark.wav");
 
 startGame();
@@ -49,7 +48,6 @@ function sound(src) {
 
 function startGame(){
     oTurn = false;
-    placeAllowed = true;
     cellElements.forEach(cell => {
         cell.classList.remove(X_CLASS);
         cell.classList.remove(O_CLASS);
@@ -64,11 +62,6 @@ function startGame(){
 function handleClick(e){
     const cell = e.target;
     const currentClass = oTurn ? O_CLASS : X_CLASS;
-    if (placeAllowed == false) {
-        cell.removeEventListener("click", handleClick);
-        cell.addEventListener("click", handleClick, { once: true });
-        return;
-    }
     placeMark(cell, currentClass);
     if (checkWin(currentClass)){
         endGame(false);
@@ -78,10 +71,6 @@ function handleClick(e){
         swapTurns();
         setBoardHoverClass();
     }
-    placeAllowed = false;
-    setTimeout(function() {
-        placeAllowed = true;
-    }, 1000);
 }
 
 function endGame(draw){
