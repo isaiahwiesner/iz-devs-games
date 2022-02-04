@@ -17,6 +17,7 @@ draw();
 
 export const eatSound = new sound("./snd/eat.wav");
 const gameoverSound = new sound("./snd/gameover.wav");
+const rickrollSound = new sound("./snd/rickroll.wav");
 
 export function sound(src) {
     this.sound = document.createElement("audio");
@@ -26,15 +27,20 @@ export function sound(src) {
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
     this.play = function(){
-      this.sound.play();
+        this.sound.play();
     }
     this.stop = function(){
-      this.sound.pause();
+        this.sound.pause();
+    }
+    this.restart = function(){
+        this.sound.currentTime = 0;
     }
 }
 
 function main(currentTime){
     if (gameOver) {
+        rickrollSound.restart();
+        rickrollSound.play();
         gameoverSound.play();
         document.getElementById('gameoverMessage').classList.add("show");
         if (SCORE > HIGH_SCORE){
@@ -65,6 +71,7 @@ function main(currentTime){
 document.getElementById('restartButton').addEventListener("click", () => {
     document.getElementById('gameoverMessage').classList.remove("show");
     move = true;
+    rickrollSound.stop();
 });
 
 function update(){

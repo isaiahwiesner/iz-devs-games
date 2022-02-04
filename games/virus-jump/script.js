@@ -10,6 +10,7 @@ let allowjump = true;
 const jumpSound = new sound("./snd/jump.wav");
 const extraSound = new sound("./snd/1k.wav");
 const gameoverSound = new sound("./snd/gameover.wav");
+const rickrollSound = new sound("./snd/rickroll.wav");
 
 function sound(src) {
     this.sound = document.createElement("audio");
@@ -19,10 +20,13 @@ function sound(src) {
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
     this.play = function(){
-      this.sound.play();
+        this.sound.play();
     }
     this.stop = function(){
-      this.sound.pause();
+        this.sound.pause();
+    }
+    this.restart = function(){
+        this.sound.currentTime = 0;
     }
 }
 
@@ -101,6 +105,8 @@ function stop(){
     }
     document.getElementById("highscore").innerHTML = "High score: " + numComma(highscore);
     setTimeout(function(){
+        rickrollSound.play();
+        rickrollSound.restart();
         document.getElementById("gameoverMessage").classList.add("show");
         if (newhs == true){
             document.querySelector("[data-gameover-message-text]").innerText = "You caught the virus!\nScore: " + numComma(score) + "\nNew high score!";
@@ -122,6 +128,7 @@ function stop(){
 document.getElementById("restartButton").addEventListener("click", () => {
     document.getElementById("gameoverMessage").classList.remove("show");
     allowjump = true;
+    rickrollSound.stop();
 })
 
 function start(){
