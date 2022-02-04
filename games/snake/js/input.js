@@ -2,9 +2,11 @@ let inputDirection = { x: 0, y: 0 };
 let lastInputDirection = { x: 0, y: 0 };
 
 import { changeDiff, startGame, move } from "./game.js"
+import { settingsOpen } from "./settings.js";
 
 window.addEventListener("keydown", (e) => {
     if (move == false) return;
+    if (settingsOpen == true) return;
     switch (e.key) {
         case "ArrowUp":
             e.preventDefault();

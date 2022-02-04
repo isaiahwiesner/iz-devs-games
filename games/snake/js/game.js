@@ -11,15 +11,15 @@ const hard = document.getElementById('hard');
 
 let lastRenderTime = 0;
 let gameOver = false;
-let gamestart = false;
+export let gamestart = false;
 const gameBoard = document.getElementById('game');
 draw();
 
 export const eatSound = new sound("./snd/eat.wav");
 const gameoverSound = new sound("./snd/gameover.wav");
-const rickrollSound = new sound("./snd/rickroll.wav");
+export const rickrollSound = new sound("./snd/rickroll.wav");
 
-export function sound(src) {
+function sound(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
     this.sound.setAttribute("preload", "auto");
@@ -27,19 +27,18 @@ export function sound(src) {
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
     this.play = function(){
-        this.sound.play();
+        let settings = JSON.parse(localStorage.getItem("settings"));
+        if (settings[0].sound == true) this.sound.currentTime = 0;
+        if (settings[0].sound == true) this.sound.play();
     }
     this.stop = function(){
-        this.sound.pause();
-    }
-    this.restart = function(){
-        this.sound.currentTime = 0;
+        let settings = JSON.parse(localStorage.getItem("settings"));
+        if (settings[0].sound == true) this.sound.pause();
     }
 }
 
 function main(currentTime){
     if (gameOver) {
-        rickrollSound.restart();
         rickrollSound.play();
         gameoverSound.play();
         document.getElementById('gameoverMessage').classList.add("show");
