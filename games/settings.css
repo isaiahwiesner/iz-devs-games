@@ -9,6 +9,7 @@
     position: absolute;
     padding-top: 10px;
     padding-right: 10px;
+    font-family: '8bit', Arial, Helvetica, sans-serif;
 }
 button.settings{
     padding: 10px;
@@ -54,6 +55,7 @@ button.settings i{
     padding: 10px;
     margin-top: 100px;
     border: 2px solid #000;
+    font-family: '8bit', Arial, Helvetica, sans-serif;
 }
 .settingspopup button:hover{
     cursor: pointer;
