@@ -1,3 +1,6 @@
+import { checkSettings } from "../../js/localStorage.js";
+checkSettings(false);
+
 const X_CLASS = "x";
 const O_CLASS = "o";
 const WINNING_COMBINATIONS = [
@@ -34,10 +37,13 @@ function sound(src) {
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
     this.play = function(){
-      this.sound.play();
+        let settings = JSON.parse(localStorage.getItem("settings"));
+        if (settings[0].sound == true) this.sound.currentTime = 0;
+        if (settings[0].sound == true) this.sound.play();
     }
     this.stop = function(){
-      this.sound.pause();
+        let settings = JSON.parse(localStorage.getItem("settings"));
+        if (settings[0].sound == true) this.sound.pause();
     }
 }
 

@@ -5,8 +5,8 @@
     <title>Tic Tac Toe - iZz Games</title>
     <link rel="icon" href="https://play.izzdevs.me/games/tic-tac-toe/img/favicon.png?v=1" type="img/png">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../settings.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="./script.js" defer></script>
     <meta property="og:title" content="Tic Tac Toe - Made by iZz">
     <meta property="og:description" content="The classic game of X's and O's">
     <meta property="og:type" content="website">
@@ -39,5 +39,17 @@
         <div data-winning-message-text></div>
         <button id="restartButton">Restart</button>
     </div>
+    
+    <div class="settingshead">
+        <button class="settings" id="settingsbtn">Settings<i class="fa fa-cog"></i></button>
+    </div>
+    <div class="settingspopup" id="settingsPopup">
+        <h2>Settings</h2>
+        <button id="settingsSound"></button>
+        <button id="settingsClose">Close</button>
+    </div>
+    
 </body>
+<script type="module" defer src="./script.js"></script>
+<script type="module" defer src="./settings.js"></script>
 </html>
