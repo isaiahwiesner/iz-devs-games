@@ -5,6 +5,7 @@ var score = 0;
 var highscore = 0;
 var die = true;
 var last1k = 0;
+let allowjump = true;
 
 const jumpSound = new sound("./snd/jump.wav");
 const extraSound = new sound("./snd/1k.wav");
@@ -26,6 +27,7 @@ function sound(src) {
 }
 
 function button(){
+    if (allowjump == false) return;
     if (started == true){
         jump();
     } else {
@@ -34,6 +36,7 @@ function button(){
 }
 
 document.addEventListener("keydown", evt => {
+    if (allowjump == false) return;
     if (evt.keyCode === 32){
         jump();
     }
@@ -98,11 +101,13 @@ function stop(){
     }
     document.getElementById("highscore").innerHTML = "High score: " + numComma(highscore);
     setTimeout(function(){
+        document.getElementById("gameoverMessage").classList.add("show");
         if (newhs == true){
-            alert("You caught the virus!\nScore: " + numComma(score) + "\nNew high score!");
+            document.querySelector("[data-gameover-message-text]").innerText = "You caught the virus!\nScore: " + numComma(score) + "\nNew high score!";
         } else{
-            alert("You caught the virus!\nScore: " + numComma(score));
+            document.querySelector("[data-gameover-message-text]").innerText = "You caught the virus!\nScore: " + numComma(score);
         }
+        allowjump = false;
         block.style.animation = "none";
         block.style.display = "none";
         started = false;
@@ -112,11 +117,12 @@ function stop(){
         document.getElementById("score").innerHTML = 0;
         document.getElementById("button").innerHTML = "Start (enter)";
     }, 1);
-    var rickroll = randomInt(1, 5);
-    if (rickroll == 1){
-        window.open("https://youtu.be/dQw4w9WgXcQ");
-    }
 }
+
+document.getElementById("restartButton").addEventListener("click", () => {
+    document.getElementById("gameoverMessage").classList.remove("show");
+    allowjump = true;
+})
 
 function start(){
     started = true;

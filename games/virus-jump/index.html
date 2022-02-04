@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Virus Jump - iZz Games</title>
         <link rel="icon" href="https://play.izzdevs.me/games/virus-jump/img/block.png">
-        <link rel="stylesheet" href="https://play.izzdevs.me/games/virus-jump/style.css">
+        <link rel="stylesheet" href="./style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta property="og:title" content="Virus Jump - Made by iZz">
         <meta property="og:description" content="Jump to avoid catching the virus!">
@@ -30,6 +30,11 @@
             <div class="bottom">
                 <button id="button" onclick="button()">Start (enter)</button>
             </div>
+        </div>
+        <div class="gameover-message" id="gameoverMessage">
+            <img src="https://31.media.tumblr.com/e28ec92dea750c11082236b1ecfa8c5d/tumblr_mhnss1yk7o1rmxj8vo1_500.gif" alt="">
+            <div data-gameover-message-text class="gameover-text"></div>
+            <button id="restartButton">Restart</button>
         </div>
     </body>
     <script src="./script.js"></script>
