@@ -1,3 +1,5 @@
+import { checkAI, switchAI } from './script.js'
+
 function settingsSound(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
@@ -29,6 +31,15 @@ function displaySettings(){
         document.getElementById('settingsSound').classList.remove('on')
         document.getElementById('settingsSound').innerHTML = `Sound: Disabled<i class="fa fa-volume-off"></i>`
     }
+    if (checkAI() == true){
+        document.getElementById('settingsAI').classList.add('on')
+        document.getElementById('settingsAI').classList.remove('off')
+        document.getElementById('settingsAI').innerHTML = `AI: Enabed`
+    } else {
+        document.getElementById('settingsAI').classList.add('off')
+        document.getElementById('settingsAI').classList.remove('on')
+        document.getElementById('settingsAI').innerHTML = `AI: Disabled`
+    }
 }
 
 document.getElementById('settingsbtn').addEventListener('click', () => {
@@ -45,5 +56,12 @@ document.getElementById('settingsSound').addEventListener('click', () => {
         soundSettings.play()
     }
     localStorage.setItem('settings', JSON.stringify(settings))
+    displaySettings()
+})
+document.getElementById('settingsAI').addEventListener('click', () => {
+    switchAI()
+    if (!settings[0].sound == false){
+        soundSettings.play()
+    }
     displaySettings()
 })

@@ -49,11 +49,12 @@ button.settings i{
 .settingspopup h2{
     font-size: 24px;
     padding-top: 100px;
+    margin-bottom: 100px;
 }
 .settingspopup button{
     width: auto;
     padding: 10px;
-    margin-top: 100px;
+    margin-bottom: 20px;
     border: 2px solid #000;
     font-family: '8bit', Arial, Helvetica, sans-serif;
 }
@@ -69,4 +70,11 @@ button.settings i{
 .settingspopup button i{
     font-size: 20px;
     padding-left: 10px;
+}
+.settingspopup button.close{
+    margin-top: none;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+
 }

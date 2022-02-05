@@ -23,6 +23,14 @@ var xScore = 0;
 var oScore = 0;
 let oTurn;
 const markSound = new sound("./snd/mark.wav");
+let o_AI = true;
+
+export function switchAI(){
+    o_AI = !o_AI;
+}
+export function checkAI(){
+    return o_AI;
+}
 
 startGame();
 
@@ -60,6 +68,11 @@ function startGame(){
 }
 
 function handleClick(e){
+    if (o_AI == true) {
+        if (oTurn == true){
+            return;
+        }
+    }
     const cell = e.target;
     const currentClass = oTurn ? O_CLASS : X_CLASS;
     placeMark(cell, currentClass);
@@ -93,6 +106,72 @@ function isDraw(){
     })
 }
 
+function AIplaceMark(){
+    var num = -1;
+    let empty = [];
+    for (const cell of cellElements){
+        num++;
+        if (!cell.classList.contains(X_CLASS) && !cell.classList.contains(O_CLASS)) empty.push(num);
+    }
+    let newcell;
+    let found = false;
+    if (checkBest(empty)) {
+        newcell = checkBest(empty);
+        found = true;
+    } else if (checkXBest(empty)){
+        newcell = checkXBest(empty);
+        found = true;
+    } else if (empty.includes(4)){
+        newcell = cellElements[4];
+        found = true;
+    } else if (cellElements[4].classList.contains(O_CLASS)) {
+        var loop = [0, 2, 6, 8];
+        var oppos = [{0: 8, 2: 6, 6: 2, 8: 0}];
+        for (const index of loop) {
+            if (empty[index]) {
+                if (empty[oppos.index]) {
+                    newcell = cellElements[index];
+                    found = true;
+                }
+            }
+        }
+    }
+    if (found == false) {
+        newcell = cellElements[empty[Math.floor(Math.random()*empty.length)]];
+    }
+    placeMark(newcell, O_CLASS);
+    if (checkWin(O_CLASS)){
+        endGame(false);
+    } else if (isDraw()){
+        endGame(true);
+    } else {
+        swapTurns();
+        setBoardHoverClass();
+    }
+}
+
+function checkXBest(obj){
+    for (const index of obj){
+        cellElements[index].classList.add(X_CLASS)
+        if (checkWin(X_CLASS)) {
+            cellElements[index].classList.remove(X_CLASS);
+            return cellElements[index];
+        }
+        cellElements[index].classList.remove(X_CLASS);
+    }
+}
+
+function checkBest(obj){
+    for (const index of obj){
+        cellElements[index].classList.add(O_CLASS)
+        if (checkWin(O_CLASS)) {
+            cellElements[index].classList.remove(O_CLASS);
+            return cellElements[index];
+        }
+        cellElements[index].classList.remove(O_CLASS);
+    }
+}
+
 function placeMark(cell, currentClass){
     cell.classList.add(currentClass);
     markSound.play();
@@ -100,6 +179,13 @@ function placeMark(cell, currentClass){
 
 function swapTurns(){
     oTurn = !oTurn;
+    if (o_AI == true){
+        if (oTurn == true){
+            setTimeout(function(){
+                AIplaceMark();
+            }, 1000);
+        }
+    }
 }
 
 function setBoardHoverClass(){
