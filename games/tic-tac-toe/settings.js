@@ -23,11 +23,11 @@ function displaySettings(){
     if (settings[0].sound == true){
         document.getElementById('settingsSound').classList.add('on')
         document.getElementById('settingsSound').classList.remove('off')
-        document.getElementById('settingsSound').innerHTML = `Sound<i class="fa fa-volume-up"></i>`
+        document.getElementById('settingsSound').innerHTML = `Sound: Enabed<i class="fa fa-volume-up"></i>`
     } else {
         document.getElementById('settingsSound').classList.add('off')
         document.getElementById('settingsSound').classList.remove('on')
-        document.getElementById('settingsSound').innerHTML = `Sound<i class="fa fa-volume-off"></i>`
+        document.getElementById('settingsSound').innerHTML = `Sound: Disabled<i class="fa fa-volume-off"></i>`
     }
 }
 
