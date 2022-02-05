@@ -1,15 +1,20 @@
-import { checkSettings } from "../../js/localStorage.js";
 import { settingsOpen } from "./settings.js"
+import { checkSettings } from "../../js/localStorage.js";
 checkSettings(false);
+import { checkHighscores } from "../../js/highScores.js";
+checkHighscores(false);
 
+let highScores = JSON.parse(localStorage.getItem("highScores"));
 export var started = false;
 var character = document.getElementById("character");
 var block = document.getElementById("block");
 var score = 0;
-var highscore = 0;
+let highscore = highScores[0].virusjump;
 var die = true;
 var last1k = 0;
 let allowjump = true;
+
+document.getElementById("highscore").innerHTML = "High score: " + numComma(highscore);
 
 const jumpSound = new sound("./snd/jump.wav");
 const extraSound = new sound("./snd/1k.wav");
@@ -111,6 +116,8 @@ function stop(){
     document.getElementById("score").innerHTML = numComma(score);
     if (score > highscore){
         newhs = true;
+        highScores[0].virusjump = score;
+        localStorage.setItem("highScores", JSON.stringify(highScores));
         highscore = score;
     }
     document.getElementById("highscore").innerHTML = "High score: " + numComma(highscore);

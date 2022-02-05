@@ -5,6 +5,11 @@ import { resetInput } from "./input.js";
 import { resetScore, SCORE, HIGH_SCORE, checkHighScore } from "./score.js";
 export let move = true;
 
+import { checkSettings } from "../../../js/localStorage.js";
+checkSettings(false);
+import { checkHighscores } from "../../../js/highScores.js";
+checkHighscores(false);
+
 let lastRenderTime = 0;
 let gameOver = false;
 export let gamestart = false;
