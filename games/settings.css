@@ -67,6 +67,9 @@ button.settings i{
 .settingspopup button.off{
     background-color: #f00;
 }
+.settingspopup button.med{
+    background-color: #fc0;
+}
 .settingspopup button i{
     font-size: 20px;
     padding-left: 10px;

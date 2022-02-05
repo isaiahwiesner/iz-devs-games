@@ -1,13 +1,14 @@
 export let settingsOpen = false
-import { rickrollSound, gamestart } from "./game.js"
+import { rickrollSound, gamestart } from './game.js'
+import { SNAKE_SPEED, changeSnakeSpeed } from './snake.js';
 
 
 function settingsSound(src) {
-    this.sound = document.createElement("audio");
+    this.sound = document.createElement('audio');
     this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
+    this.sound.setAttribute('preload', 'auto');
+    this.sound.setAttribute('controls', 'none');
+    this.sound.style.display = 'none';
     document.body.appendChild(this.sound);
     this.play = function(){
         this.sound.currentTime = 0;
@@ -33,6 +34,22 @@ function displaySettings(){
         document.getElementById('settingsSound').classList.remove('on')
         document.getElementById('settingsSound').innerHTML = `Sound: Disabled<i class="fa fa-volume-off"></i>`
     }
+    if (SNAKE_SPEED == 15){
+        document.getElementById('settingsDiff').classList.add('off')
+        document.getElementById('settingsDiff').classList.remove('med')
+        document.getElementById('settingsDiff').classList.remove('on')
+        document.getElementById('settingsDiff').innerHTML = `Difficulty: Hard`
+    } else if (SNAKE_SPEED == 5){
+        document.getElementById('settingsDiff').classList.add('on')
+        document.getElementById('settingsDiff').classList.remove('med')
+        document.getElementById('settingsDiff').classList.remove('off')
+        document.getElementById('settingsDiff').innerHTML = `Difficulty: Easy`
+    } else {
+        document.getElementById('settingsDiff').classList.add('med')
+        document.getElementById('settingsDiff').classList.remove('off')
+        document.getElementById('settingsDiff').classList.remove('on')
+        document.getElementById('settingsDiff').innerHTML = `Difficulty: Normal`
+    }
 }
 
 document.getElementById('settingsbtn').addEventListener('click', () => {
@@ -56,3 +73,21 @@ document.getElementById('settingsSound').addEventListener('click', () => {
     localStorage.setItem('settings', JSON.stringify(settings))
     displaySettings()
 })
+
+document.getElementById('settingsDiff').addEventListener('click', () => {
+    if (SNAKE_SPEED == 10){
+        changeSnakeSpeed(15)
+    } else if (SNAKE_SPEED == 15){
+        changeSnakeSpeed(5)
+    } else {
+        changeSnakeSpeed(10)
+    }
+    if (settings[0].sound == false){
+        rickrollSound.stop()
+    } else {
+        soundSettings.play()
+    }
+    displaySettings()
+})
+
+changeSnakeSpeed(10)
