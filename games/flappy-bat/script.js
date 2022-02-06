@@ -79,7 +79,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
 });
 
 hole.addEventListener('animationiteration', () => {
-    var random = -((Math.random() * 150) + 200);
+    var random = -((Math.random() * 250) + 160);
     hole.style.top = random + 'px';
 });
 
