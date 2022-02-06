@@ -13,10 +13,10 @@ export function checkHighscores(clear){
     }
     obj.push(hs)
     if (localStorage.getItem('highScores') == null) {
-        console.log('High scores created')
+        console.log('%cHigh scores created', 'color: #0c0')
         localStorage.setItem('highScores', JSON.stringify(obj))
     } else {
-        console.log('High scores loaded')
+        console.log('%cHigh scores loaded', 'color: #0c0')
     }
     const highScores = JSON.parse(localStorage.getItem('highScores'))
     if (highScores[0].version < currentVersion) {
@@ -27,6 +27,6 @@ export function checkHighscores(clear){
         obj[0].tictactoe = tictactoe
         obj[0].virusjump = virusjump
         localStorage.setItem('highScores', JSON.stringify(obj))
-        console.log('High scores updated')
+        console.log('%cHigh scores updated', 'color: #fc0')
     }
 }
