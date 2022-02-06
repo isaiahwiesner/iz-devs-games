@@ -12,10 +12,10 @@ export function checkSettings(clear){
     }
     obj.push(ls)
     if (localStorage.getItem('settings') == null) {
-        console.log('Settings created')
+        console.log('%cSettings created', 'color: #0c0')
         localStorage.setItem('settings', JSON.stringify(obj))
     } else {
-        console.log('Settings loaded')
+        console.log('%cSettings loaded', 'color: #0c0')
     }
     const settings = JSON.parse(localStorage.getItem('settings'))
     if (settings[0].version < currentVersion) {
@@ -25,7 +25,7 @@ export function checkSettings(clear){
         obj[0].username = username
         obj[0].sound = sound
         localStorage.setItem('settings', JSON.stringify(obj))
-        console.log('Settings updated')
+        console.log('%cSettings updated', 'color: #fc0')
     }
     setTimeout(function() {
         console.log(JSON.parse(localStorage.getItem('settings')))
