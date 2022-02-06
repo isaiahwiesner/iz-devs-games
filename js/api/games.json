@@ -1,5 +1,11 @@
 [
     {
+        "name":"Flappy Bat",
+        "description":"Flap your tiny bat wings to avoid hitting obstacles!",
+        "link":"https://play.izzdevs.me/games/flappy-bat",
+        "image":"https://play.izzdevs.me/games/flappy-bat/img/favicon.png"
+    },
+    {
         "name":"Snake",
         "description":"Slither around and get bigger as you go!",
         "link":"https://play.izzdevs.me/games/snake",

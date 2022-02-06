@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Flappy Bat - iZz Games</title>
+    <link rel="icon" href="https://play.izzdevs.me/games/flappy-bat/img/favicon.png">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta property="og:title" content="Flappy Bat - Made by iZz">
+    <meta property="og:description" content="Flap your tiny bat wings to avoid hitting obstacles!">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://play.izzdevs.me/games/flappy-bat/img/favicon.png">
+    <meta property="og:url" content="https://www.izzdevs.me/games/flappy-bat">
+    <meta name="theme-color" content="#008800">
+</head>
+
+<body>
+    <div class="bbhead">
+        <a href="https://play.izzdevs.me" class="backbtn"><i class="fa fa-caret-left"></i>HOME</a>
+    </div>
+
+    <div class="all">
+        <h1>Flappy Bat</h1>
+        <div class="top">
+            <p id="score">0</p>
+            <p id="highscore">High score: 0</p>
+        </div>
+        <div id="game">
+            <div id="block"></div>
+            <div id="hole"></div>
+            <div id="character"></div>
+        </div>
+    </div>
+
+    <div class="gameover-message" id="gameoverMessage">
+        <img src="https://31.media.tumblr.com/e28ec92dea750c11082236b1ecfa8c5d/tumblr_mhnss1yk7o1rmxj8vo1_500.gif" alt="">
+        <div data-gameover-message-text class="gameover-text"></div>
+        <button id="restartButton">Restart</button>
+    </div>
+
+    <div class="settingshead">
+        <button class="settings" id="settingsbtn">Settings<i class="fa fa-cog"></i></button>
+    </div>
+
+    <div class="settingspopup" id="settingsPopup">
+        <h2>Settings</h2>
+        <button id="settingsSound"></button>
+        <button id="settingsClose" class="close">Close</button>
+    </div>
+</body>
+
+<script type="module" defer src="./script.js"></script>
+<script type="module" defer src="./settings.js"></script>
+</html>

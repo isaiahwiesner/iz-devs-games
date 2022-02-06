@@ -1,4 +1,4 @@
-const currentVersion = 0
+const currentVersion = 0.1
 
 export function checkHighscores(clear){
     if (clear == true) {
@@ -8,7 +8,8 @@ export function checkHighscores(clear){
     var hs = {
         version: currentVersion,
         snake: 0,
-        virusjump: 0
+        virusjump: 0,
+        flappybat: 0
     }
     obj.push(hs)
     if (localStorage.getItem('highScores') == null) {
@@ -19,9 +20,8 @@ export function checkHighscores(clear){
     }
     const highScores = JSON.parse(localStorage.getItem('highScores'))
     if (highScores[0].version < currentVersion) {
-        const snake = settings[0].snake
-        const tictactoe = settings[0].tictactoe
-        const virusjump = settings[0].virusjump
+        const snake = highScores[0].snake
+        const virusjump = highScores[0].virusjump
         localStorage.removeItem('highScores')
         obj[0].snake = snake
         obj[0].tictactoe = tictactoe
