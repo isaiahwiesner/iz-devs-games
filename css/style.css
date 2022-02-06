@@ -26,6 +26,7 @@ body{
     padding-top: 10px;
     float: right;
     padding-right: 10px;
+    margin-right: 10px;
     width: 300px;
     height: 30px;
 }
@@ -57,6 +58,7 @@ body{
     padding: 20px;
 }
 .body h1{
+    margin-top: 10px;
     padding-bottom: 20px;
     font-size: 48px;
     font-family: 'Main', Arial, Helvetica, sans-serif;

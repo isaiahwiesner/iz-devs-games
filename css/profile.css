@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'Aldo';
+    src: url(../fonts/Main.ttf);
+}
+@font-face {
+    font-family: '8bit';
+    src: url(../fonts/8-bit-hud.ttf);
+}
+.profilebar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+}
+.profilebar button{
+    border: none;
+    background: none;
+    font-family: '8bit', Arial, Helvetica, sans-serif;
+}
+.profilebar button:hover{
+    color: #5ca5dc;
+    cursor: pointer;
+}
+
+.show{
+    display: flex;
+}
+.hide{
+    display: none;
+}
+#profilesettings{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.9);
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+#profilesettings h2{
+    font-size: 24px;
+    padding-top: 100px;
+    margin-bottom: 10px;
+    font-family: '8bit', Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+#profilesettings h3{
+    font-size: 16px;
+    margin-bottom: 50px;
+    font-family: '8bit', Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+#profilesettings form{
+    width: 300px;
+    display: flex;
+}
+#profilesettings input{
+    padding: 5px;
+    color: #000;
+    background-color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 196px;
+    float: left;
+    flex: 1;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    border-left: 2px solid #000;
+    border-right: none
+}
+#profilesettings input:focus{
+    outline: none;
+}
+#profilesettings button.inputbtn{
+    text-align: center;
+    padding: 5px;
+    color: #000;
+    background-color: #fff;
+    font-family: '8bit', Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    width: 96px;
+    float: left;
+    flex: 1;
+    border: 2px solid #000;
+}
+#profilesettings button:hover.inputbtn{
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+button#close{
+    color: #000;
+    background-color: #fff;
+    border: 2px solid #000;
+    font-family: '8bit', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    margin-top: none;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+}
+button:hover#close{
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.highscores{
+    margin-top: 80px;
+}
+.highscores h4{
+    font-size: 16px;
+    margin-bottom: 50px;
+    font-family: '8bit', Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+.highscorescontainer{
+    width: 100%;
+    margin-top: 20px;
+}
+.highscores h3{
+    font-size: 12px;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    font-family: '8bit', Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+.highscores .highscore{
+    width: 33.3%;
+    float: left;
+    margin-top: -40px
+}

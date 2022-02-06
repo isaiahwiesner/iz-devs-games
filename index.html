@@ -1,7 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Home - iZz Games</title>
     <link rel="icon" href="./img/logo.png">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta property="og:title" content="Home - iZz Games">
     <meta property="og:description" content="Browse through games created with HTML, CSS and JavaScript">
@@ -11,6 +14,9 @@
     <meta name="theme-color" content="#0a3553">
 </head>
 <body>
+    <div class="profilebar">
+        <button id="profileButton">User</button>
+    </div>
     <div class="searchbar">
         <input type="text" id="searchbar" placeholder="Search games">
     </div>
@@ -19,5 +25,28 @@
         <p class="center">Welcome to my game site! Here you can browse through games that I made from scratch using nothing but HTML, CSS and JavaScript!</p>
         <div id="gameList"></div>
     </div>
-    <script type="text/javascript" src="https://play.izzdevs.me/js/main.js"></script>
+
+    <div id="profilesettings" class="hide">
+        <h2>Profile</h2>
+        <h3 id="usernamedisplay">User</h3>
+        <form>
+            <input type="text" id="username" placeholder="Enter username" autocomplete="off">
+            <button id="usernamebtn" class="inputbtn">Submit</button>
+        </form>
+        <div class="highscores">
+            <h3>High Scores</h3>
+            <div class="highscorescontainer">
+                <div class="highscore"><h4>Flappy Bat</h4></div>
+                <div class="highscore"><h4>Snake</h4></div>
+                <div class="highscore"><h4>Virus Jump</h4></div>
+                <div class="highscore"><h4 id="hsfb">0</h4></div>
+                <div class="highscore"><h4 id="hssn">0</h4></div>
+                <div class="highscore"><h4 id="hsvj">0</h4></div>
+            </div>
+        </div>
+        <button id="close">Close</button>
+    </div>
 </body>
+<script type="text/javascript" src="./js/main.js"></script>
+<script type="module" defer src="./js/profile.js"></script>
+</html>
