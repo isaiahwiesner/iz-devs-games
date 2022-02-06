@@ -92,10 +92,10 @@ setInterval(function () {
     }
     var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
     var holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue('top'));
-    if ((characterTop > -190)||((blockLeft < 70)&&(blockLeft > 0)&&((characterTop+40 > holeTop)||(characterTop < holeTop-150)))){
+    if ((characterTop > -190)||((blockLeft < 90)&&(blockLeft > 0)&&((characterTop+40 > holeTop)||(characterTop < holeTop-150)))){
         stopGame();
         hitSound.play()
-    } else if ((blockLeft < 20)&&(blockLeft > 0)&&((!characterTop+20 > holeTop)||(!characterTop < holeTop-150))&&(gameTimer-lastScore > 150)){
+    } else if ((blockLeft < 20)&&(blockLeft > 0)&&((!characterTop+40 > holeTop)||(!characterTop < holeTop-150))&&(gameTimer-lastScore > 150)){
         score++;
         lastScore = gameTimer;
         document.getElementById('score').innerHTML = score;
